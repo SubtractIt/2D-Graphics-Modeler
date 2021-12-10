@@ -2,6 +2,7 @@
 #define SHAPE_H
 
 #include <QObject>
+#include <QColor>
 #include <QPainter>
 #include <QWidget>
 #include <QBrush>
@@ -19,23 +20,26 @@ using namespace sdog;
 
 //********SHAPE ABC**********
 class Shape : public QPainter
-{   
+{
 public:
     enum ShapeTypes {blank, line, polyline, polygon, rectangle, square, ellipse, circle, text};
 
     Shape()
     {
-        id = -1;
+        id = 0;
         shape = ShapeTypes::blank;          //default shapeType
         pen = Qt::SolidLine;                //default pen stroke - solid line
         brush = Qt::NoBrush;                // default brush type - no brush pattern (use Qt::SolidPattern for uniform color)
+
+        id = numShapes;
+        numShapes++;
     }
 
     //add copy operations
 
     Shape(QPaintDevice *device) : qpainter(device)
     {
-        id = -1;
+        id = 0;
         shape = ShapeTypes::blank;
         pen = Qt::SolidLine;
         brush = Qt::NoBrush;
@@ -76,7 +80,7 @@ public:
 
     //sets QPen - uses Qt::GlobalColor (constructs color based on val, Qt::GlobalColor uses predefined QColor objects), width, Qt::PenStyle, Qt::PenCapStyle, and Qt::PenJoinStyle based on arguments passed in from file
     // uses values passed in for QPen setters to set pen types
-    void setPen(Qt::GlobalColor color, int width, Qt::PenStyle style, Qt::PenCapStyle penCap, Qt::PenJoinStyle penJoin)
+    void setPen(QColor color, int width, Qt::PenStyle style, Qt::PenCapStyle penCap, Qt::PenJoinStyle penJoin)
     {
         pen.setColor(color);
         pen.setWidth(width);
@@ -88,7 +92,7 @@ public:
     }
 
     //sets QBrush - uses Qt::GlobalColor (constructs color based on val, Qt::GlobalColor uses predefined QColor objects), and Qt::BrushStyle
-    void setBrush(Qt::GlobalColor color, Qt::BrushStyle style)
+    void setBrush(QColor color, Qt::BrushStyle style)
     {
         brush.setColor(color);
         brush.setStyle(style);
@@ -108,6 +112,8 @@ public:
 
     //pure virtual function - draws shape for every subclass
     virtual void draw(QPaintDevice *device) = 0;
+
+    virtual void move(int x, int y, int coord, int id) = 0;
 
     //get beginning and ends of points for the shape renders
     virtual QPoint getPointBegin() { return QPoint(0,0); }
@@ -134,6 +140,7 @@ private:
     QPen pen;
     QBrush brush;
     vector<QPoint> vect;
+    static int numShapes;
 
 };
 
@@ -153,12 +160,10 @@ public:
         pointEnd.setY(10);
     }
 
-    Line(QPaintDevice *device) : Shape(device)
+    Line(QPoint _pointBegin, QPoint _pointEnd) : Shape()
     {
-        pointBegin.setX(0);
-        pointBegin.setY(0);
-        pointEnd.setX(10);
-        pointEnd.setY(10);
+        pointBegin = _pointBegin;
+        pointEnd = _pointEnd;
     }
 
     //setPoints - sets points through QPoint objects
@@ -180,6 +185,21 @@ public:
         getQPainter().end();
     }
 
+    void move(int x, int y, int coord, int id) override
+    {
+        QPoint point(x, y);
+        if (coord == 1)
+        {
+            pointBegin = point;
+        }
+        else if (coord == 2)
+        {
+            pointEnd = point;
+        }
+
+
+    }
+
     QPoint getPointBegin() override
     {
         return pointBegin;
@@ -192,24 +212,33 @@ public:
 
 
 };
-
+const int DEFAULT_NUM_PTS = 8;
 //******POLYLINE CLASS********
 class Polyline : public Shape
 {
 private:
-    vector <QPoint> points;
+    QPoint pointArr[DEFAULT_NUM_PTS];
+    int numPts;
+
 public:
     Polyline() : Shape() {}
 
-    Polyline(QPaintDevice *device) : Shape(device) {}
+    Polyline(QPoint *point, int NP) : Shape()
+    {
+        numPts = NP;
+        for (int i = 0; i < numPts; i++)
+        {
+            pointArr[i] = point[i];
+        }
+    }
 
     ~Polyline() override {}
 
     //adds a point to vector that is used to make polyline (QPoint passed in)
     void setPoints(const QPoint &point)
     {
-        points.push_back(point);
-        return;
+        pointArr[numPts] = point;
+        numPts++;
     }
 
     //draws polyline
@@ -219,11 +248,18 @@ public:
         getQPainter().begin(device);
         getQPainter().setPen(getPen());
         getQPainter().setBrush(getBrush());
-        getQPainter().drawPolyline(points.begin(), points.size());
+        getQPainter().drawPolyline(pointArr, numPts);
+        getQPainter().drawText(pointArr[0], shapeId);
         getQPainter().end();
     }
 
-    vector<QPoint>& getPoints() override {return points;};
+    void move(int x, int y, int coord, int id) override
+    {
+       QPoint point(x, y);
+       pointArr[coord - 1] = point;
+    }
+
+    //vector<QPoint>& getPoints() override {return points;};
 
 };
 
@@ -231,19 +267,29 @@ public:
 class Polygon : public Shape
 {
 private:
-    vector <QPoint> points;
+    QPoint pointArr[DEFAULT_NUM_PTS];
+    int numPts;
 
 public:
     Polygon() : Shape() {}
 
-    Polygon(QPaintDevice* device) : Shape(device) {}
+    Polygon(QPoint *point, int NP) : Shape()
+    {
+        numPts = NP;
+        for (int i = 0; i < numPts; i++)
+        {
+            pointArr[i] = point[i];
+        }
+    }
+
 
     ~Polygon() override {}
 
     //adds point to vector used for polygon
     void setPoints(const QPoint& point)
     {
-        points.push_back(point);
+        pointArr[numPts] = point;
+        numPts++;
     }
 
 
@@ -253,11 +299,18 @@ public:
         getQPainter().begin(device);
         getQPainter().setPen(getPen());
         getQPainter().setBrush(getBrush());
-        getQPainter().drawPolygon(points.begin(), points.size());
+        getQPainter().drawPolyline(pointArr, numPts);
+        getQPainter().drawText(pointArr[0], shapeId);
         getQPainter().end();
     }
 
-    vector<QPoint>& getPoints() override {return points;}
+    void move(int x, int y, int coord, int id) override
+    {
+       QPoint point(x, y);
+       pointArr[coord - 1] = point;
+    }
+
+    //vector<QPoint>& getPoints() override {return points;}
 
 };
 
@@ -272,9 +325,21 @@ private:
 
 public:
 
-    Rectangle() : Shape() {}
+    Rectangle() : Shape()
+    {
+        xpos = 0;
+        ypos = 0;
+        width = 0;
+        height = 0;
+    }
 
-    Rectangle(QPaintDevice *device) : Shape(device) {}
+    Rectangle(int x, int y, int w, int h) : Shape()
+    {
+        xpos = x;
+        ypos = y;
+        width = w;
+        height = h;
+    }
 
     void setRectStart(int xCoord, int yCoord)
     {
@@ -297,9 +362,17 @@ public:
         QString shapeId = "ID: " + QString::number(getID());
         getQPainter().begin(device);
         getQPainter().setPen(getPen());
-	getQPainter().setBrush(getBrush());
+        getQPainter().setBrush(getBrush());
         getQPainter().drawRect(xpos, ypos, width, height);
+        getQPainter().drawText(xpos, ypos, shapeId);
         getQPainter().end();
+    }
+
+    void move(int x, int y, int coord, int id) override
+    {
+        xpos = x;
+        ypos = y;
+        getQPainter().drawRect(xpos, ypos, width, height);
     }
 
     int getXCoord()
@@ -334,9 +407,21 @@ private:
 
 public:
 
-    Square() : Shape() {}
+    Square() : Shape()
+    {
+        xpos = 0;
+        ypos = 0;
+        width = 10;
+        height = 10;
+    }
 
-    Square(QPaintDevice *device) : Shape(device) {}
+    Square(QPaintDevice *device, int x, int y, int sL) : Shape(device)
+    {
+        xpos = x;
+        ypos = y;
+        width = sL;
+        height = width;
+    }
 
     void setSquareStart(int xCoord, int yCoord)
     {
@@ -358,6 +443,13 @@ public:
         getQPainter().setBrush(getBrush());
         getQPainter().drawRect(xpos, ypos, width, height);
         getQPainter().end();
+    }
+
+    void move(int x, int y, int coord, int id) override
+    {
+        xpos = x;
+        ypos = y;
+        getQPainter().drawRect(xpos, ypos, width, height);
     }
 
     int getXCoord()
@@ -387,9 +479,21 @@ private:
 
 public:
 
-    Circle() : Shape() {}
+    Circle() : Shape()
+    {
+        xpos = 0;
+        ypos = 0;
+        width = 10;
+        height = 10;
+    }
 
-    Circle(QPaintDevice *device) : Shape(device) {}
+    Circle(int x, int y, int w, int h) : Shape()
+    {
+        xpos = x;
+        ypos = y;
+        width = w;
+        height = h;
+    }
 
     void setCircleStart(int xCoord, int yCoord)
     {
@@ -413,6 +517,15 @@ public:
         getQPainter().end();
     }
 
+    void move(int x, int y, int coord, int id) override
+    {
+        xpos = x;
+        ypos = y;
+        getQPainter().drawEllipse(xpos, ypos, width, height);
+
+    }
+
+
     int getXCoord()
     {
         return xpos;
@@ -435,14 +548,27 @@ class Ellipse : public Shape
 private:
     int xpos;
     int ypos;
-    int height;
     int width;
+    int height;
+
 
 public:
 
-    Ellipse() : Shape() {}
+    Ellipse() : Shape()
+    {
+        xpos = 0;
+        ypos = 0;
+        width = 10;
+        height = 10;
+    }
 
-    Ellipse(QPaintDevice *device) : Shape(device) {}
+    Ellipse(int x, int y, int w, int h) : Shape()
+    {
+        xpos = x;
+        ypos = y;
+        width = w;
+        height = h;
+    }
 
     void setEllipseStart(int xCoord, int yCoord)
     {
@@ -467,7 +593,16 @@ public:
         getQPainter().setPen(getPen());
         getQPainter().setBrush(getBrush());
         getQPainter().drawEllipse(xpos, ypos, width, height);
+        getQPainter().drawText(xpos, ypos, shapeId);
         getQPainter().end();
+    }
+
+    void move(int x, int y, int coord, int id) override
+    {
+        xpos = x;
+        ypos = y;
+        getQPainter().drawEllipse(xpos, ypos, width, height);
+
     }
 
     int getXCoord()
@@ -505,15 +640,11 @@ private:
     int bx;
     int by;
 
-    QRect textbox;      // creates a null rectangle
     QFont fontobj; // need seperate object to pass values to for QFont functions
 
     QString TextString;
     QColor TextColor;
     Qt::AlignmentFlag TextAlignment;
-    QFont::Style TextFontStyle;
-    QString TextFontFamily;
-    QFont::Weight TextFontWeight;
     int TextPointSize;
 
     // PMF's:
@@ -523,18 +654,103 @@ public:
 
     Text() : Shape() {}
 
+    Text(int tx, int ty, int bx, int by,
+         QString TextString, int TC,
+         int TA,
+         int TFS, int TFF,
+         int TFW, int TPS){
+        // this->id = id
+        this->tx = tx;
+        this->ty = ty;
+        this->bx = bx;
+        this->by = by;
+        //this->textbox = textbox;
+        this->TextString = TextString;
+        //this->TextColor = TextColor;
+        //this->TextAlignment = TextAlignment;
+        //this->TextFontStyle = TextFontStyle;
+        //this->TextFontFamily = TextFontFamily;
+        //this->TextFontWeight = TextFontWeight;
+
+        switch(TC)
+        {
+            case 0: TextColor = Qt::blue;
+                break;
+            case 1: TextColor = Qt::red;
+                break;
+            case 2: TextColor = Qt::green;
+                break;
+            case 3: TextColor = Qt::yellow;
+                break;
+            case 4: TextColor = Qt::black;
+                break;
+            case 5: TextColor = Qt::white;
+                break;
+            case 6: TextColor = Qt::cyan;
+                break;
+            case 7: TextColor = Qt::magenta;
+                break;
+            case 8: TextColor = Qt::gray;
+                break;
+        }
+
+        switch(TA)
+        {
+            case 0: TextAlignment = Qt::AlignLeft;
+                break;
+            case 1: TextAlignment = Qt::AlignCenter;
+                    break;
+            case 2: TextAlignment = Qt::AlignRight;
+                    break;
+            case 3: TextAlignment = Qt::AlignTop;
+                    break;
+            case 4: TextAlignment = Qt::AlignBottom;
+                break;
+        }
+
+        switch(TFS)
+        {
+            case 0:
+                break;
+            case 1: fontobj.setItalic(1);
+                break;
+            case 2: fontobj.setBold(1);
+                break;
+        }
+
+        switch(TFF)
+        {
+            case 0: fontobj.setFamily("Comic Sans MS");
+                break;
+            case 1: fontobj.setFamily("Courier");
+                break;
+            case 2: fontobj.setFamily("Helvetica");
+                break;
+            case 3: fontobj.setFamily("Times");
+                break;
+        }
+
+        switch(TFW)
+        {
+            case 0: fontobj.setWeight(QFont::Thin);
+                break;
+            case 1: fontobj.setWeight(QFont::Light);
+                    break;
+            case 2: fontobj.setWeight(QFont::Normal);
+                    break;
+            case 3: fontobj.setWeight(QFont::Bold);
+                    break;
+        }
+
+        fontobj.setPointSize(TPS);
+    }
+
     Text(QPaintDevice *device) : Shape(device) {}
 
     ~Text() override {};
 
     // Setters:
     //===========================
-    // Set length and width of text box
-    void setTextBox(const int& tx, const int& ty, const int &bx, const int& by)
-    {
-        textbox.setCoords(tx, ty, bx, by);
-    }
-
     // Set string of text
     void setTextString(const QString& inString)
     {
@@ -547,37 +763,24 @@ public:
                       const Qt::AlignmentFlag tAlign, const int tpSize, const QString tFont,
                       const QFont::Style tStyle, const QFont::Weight tWeight)
     {
-        textbox = rO;
         this->tx = tx;
         this->ty = ty;
         this->bx = bx;
         this->by = by;
 
-        textbox.setCoords(tx, ty, bx, by);
-
         TextString = tString;
         TextColor = tClr;
         TextAlignment = tAlign;
         TextPointSize = tpSize;
-        TextFontFamily = tFont;
-        TextFontStyle = tStyle;
-        TextFontWeight = tWeight;
 
         // specifically for font to print
         fontobj.setPointSize(TextPointSize);
-        fontobj.setFamily(TextFontFamily);
-        fontobj.setStyle(TextFontStyle);
-        fontobj.setWeight(TextFontWeight);
 
     };
     //____________________________________________________
 
     // Getters:
     //===========================
-    QRect getRect()
-    {
-        return textbox;
-    }
     int getX1Coord()
     {
         return tx;
@@ -604,18 +807,23 @@ public:
 
     void draw(QPaintDevice* device) override
     {
-        QString idStr = "ID: " + QString::number(getID());
+        QString shapeId = "ID: " + QString::number(getID());
         getQPainter().begin(device);
         getQPainter().setPen(TextColor);
         getQPainter().setFont(fontobj);
-        getQPainter().save();   // push current data onto stack
 
         // Drawing text:
-        getQPainter().drawText(textbox, TextAlignment, TextString);
-        getQPainter().setPen(QColor(Qt::GlobalColor::black)); // set color to rgb: 0,0,0
+        getQPainter().drawText(this->tx, this->ty, this->bx, this->by, TextAlignment, TextString);
+        getQPainter().drawText(this->tx, this->ty, shapeId);
 
-        getQPainter().restore();
+
         getQPainter().end();    // pop / unwind stack
+    }
+
+    void move(int x, int y, int coord, int id) override
+    {
+        this->tx = x;
+        this->ty = y;
     }
 };
 

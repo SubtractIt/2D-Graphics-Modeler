@@ -17,13 +17,14 @@ class RenderArea : public QWidget
 
     //from drawing example
     void paintEvent(QPaintEvent *event);
-    QSize sizeHint() const {return QSize(1000, 500);}
-    QSize minimumSizeHint() const {return QSize(1000, 500);}
+
+    QSize sizeHint() const {return QSize(1000, 500);}           //what does sizehint do - used from renderarea example
+    QSize minimumSizeHint() const {return QSize(100, 100);}     //^^
 
     //to get shapes info
-    const vector<Shape*>& getShapes() {return shapeMag;}
+    const vector<Shape*>& getShapes() {return shapeVector;}
 
-    int getSize() {return shapeMag.size(); }
+    int getSize() {return shapeVector.size(); }
     int getNumShapesRenderArea() {return numShapesRenderArea;}
 
     //functions to modify shapes
@@ -32,31 +33,12 @@ class RenderArea : public QWidget
     void cutShape(int inRemove);
     void moveShape(int inMove, int coordMove, int x, int y);
 
-private:
-    const QImage renderArea;
-    sdog::vector<Shape*> shapeMag;
-    int numShapesRenderArea;
-
     void readShapeFile();
 
-   QString getStringColor(QColor color);
-   QString getStringPenCap(Qt::PenCapStyle penCapStyle);
-   QString getStringPenStyle(Qt::PenStyle penStyle);
-   QString getStringPenJointStyle(Qt::PenJoinStyle penJointStyle);
-   QString getStringBrush(Qt::BrushStyle brush);
-   QString getStringFlag(Qt::AlignmentFlag  flag);
-   QString getStringFontStyle(QFont::Style fontStyle);
-   QString getStringFontWeight(int fontWeight);
-
-   Shape::ShapeTypes getShapeType(QString shape);
-   Qt::GlobalColor   getColor(QString color);
-   Qt::PenCapStyle   getPenCapStyle(QString cap);
-   Qt::PenStyle      getPenStyle(QString pen);
-   Qt::PenJoinStyle  getPenJointStyle(QString penJoint);
-   Qt::BrushStyle    getBrushStyle(QString brushStyle);
-   Qt::AlignmentFlag getFlag(QString flag);
-   QFont::Style      getFontStyle(QString fontStyle);
-   QFont::Weight     getFontWeight(QString fontWeight);
+private:
+    const QImage renderArea;
+    sdog::vector<Shape*> shapeVector;
+    int numShapesRenderArea;
 
 
 };
