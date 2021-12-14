@@ -9,6 +9,18 @@
 secDialog::secDialog(QWidget *parent) : QMainWindow(parent), ui(new Ui::secDialog)
 {
     ui->setupUi(this);
+
+    sdog::vector<Shape*> shapeVector = readFile();
+        // This is literally the perfect place for auto.
+
+    for (int i = 0; i < shapeVector.size(); ++i)
+    {
+        ui->widget->addShape(shapeVector[i]);
+    }
+//        for (auto i = shapeVector.begin(); i < shapeVector.end(); ++i)
+//        {
+//            ui->widget->addShape(*i);
+//        }
 }
 
 secDialog::~secDialog()
@@ -931,4 +943,13 @@ void secDialog::on_pushButton_6_clicked()   //polygon
         ui->widget->addShape(polygon);
         ui->widget->update();
 }
+
+
+
+
+//void secDialog::on_pushButton_8_clicked()       //load
+//{
+//    ui->widget->renderParsedShapes();
+//    ui->widget->update();
+//}
 

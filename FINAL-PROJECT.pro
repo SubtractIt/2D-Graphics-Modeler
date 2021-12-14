@@ -40,19 +40,14 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 SUBDIRS += \
-    2D-Graphics-Modeler.pro
+    2D-Graphics-Modeler-v2.pro
 
 DISTFILES += \
-    .qmake.stash \
     2D-Graphics-Modeler-v2.pro.user \
-    2D-Graphics-Modeler.pro.user \
-    2D-Graphics-Modeler.pro.user.a8bac56 \
+    FINAL-PROJECT.pro.user \
     Makefile \
     Makefile.Debug \
-    Makefile.Release \
     README.md \
-    object_script.2D-Graphics-Modeler.Debug \
-    object_script.2D-Graphics-Modeler.Release \
     scrumtest \
     shape_input_file_specs.txt \
     shapes.txt

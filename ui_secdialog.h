@@ -344,38 +344,10 @@ public:
     QPushButton *pushButton_5;
     QWidget *tab_setProperties;
     QLabel *label_52;
-    QWidget *layoutWidget9;
-    QHBoxLayout *horizontalLayout_46;
-    QHBoxLayout *horizontalLayout_42;
-    QLabel *label_56;
-    QComboBox *comboBox_setPenCapStyle;
-    QFrame *line_14;
-    QHBoxLayout *horizontalLayout_41;
-    QLabel *label_55;
-    QComboBox *comboBox_setPenStyle;
-    QFrame *line_15;
-    QHBoxLayout *horizontalLayout_40;
-    QLabel *label_54;
-    QSpinBox *spinBox_setPenWidth;
-    QFrame *line_16;
-    QHBoxLayout *horizontalLayout_39;
-    QLabel *label_53;
-    QComboBox *comboBox_setPenColor;
-    QWidget *layoutWidget10;
-    QHBoxLayout *horizontalLayout_47;
-    QHBoxLayout *horizontalLayout_43;
-    QLabel *label_57;
-    QComboBox *comboBox_setPenJoinStyle;
-    QFrame *line_17;
-    QHBoxLayout *horizontalLayout_44;
-    QLabel *label_58;
-    QComboBox *comboBox_setBrushColor;
-    QHBoxLayout *horizontalLayout_45;
-    QFrame *line_18;
-    QLabel *label_59;
-    QComboBox *comboBox_setBrushStyle;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
     QWidget *Tab_Move;
-    QWidget *layoutWidget11;
+    QWidget *layoutWidget9;
     QVBoxLayout *verticalLayout_25;
     QHBoxLayout *horizontalLayout_67;
     QLabel *label_74;
@@ -388,14 +360,14 @@ public:
     QLabel *label_84;
     QSpinBox *spinBox_moveY;
     QPushButton *pushButton_move;
-    QWidget *layoutWidget12;
+    QWidget *layoutWidget10;
     QVBoxLayout *verticalLayout_26;
     QLabel *label_85;
     QHBoxLayout *horizontalLayout_71;
     QLabel *label_86;
     QSpinBox *spinBox_moveCoordinate;
     QWidget *tab_delete;
-    QWidget *layoutWidget13;
+    QWidget *layoutWidget11;
     QVBoxLayout *verticalLayout_24;
     QHBoxLayout *horizontalLayout_66;
     QLabel *label_70;
@@ -2045,220 +2017,20 @@ public:
         label_52 = new QLabel(tab_setProperties);
         label_52->setObjectName(QString::fromUtf8("label_52"));
         label_52->setGeometry(QRect(420, 20, 231, 16));
-        layoutWidget9 = new QWidget(tab_setProperties);
-        layoutWidget9->setObjectName(QString::fromUtf8("layoutWidget9"));
-        layoutWidget9->setGeometry(QRect(90, 50, 819, 34));
-        horizontalLayout_46 = new QHBoxLayout(layoutWidget9);
-        horizontalLayout_46->setSpacing(6);
-        horizontalLayout_46->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_46->setObjectName(QString::fromUtf8("horizontalLayout_46"));
-        horizontalLayout_46->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_42 = new QHBoxLayout();
-        horizontalLayout_42->setSpacing(6);
-        horizontalLayout_42->setObjectName(QString::fromUtf8("horizontalLayout_42"));
-        label_56 = new QLabel(layoutWidget9);
-        label_56->setObjectName(QString::fromUtf8("label_56"));
-        label_56->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_42->addWidget(label_56);
-
-        comboBox_setPenCapStyle = new QComboBox(layoutWidget9);
-        comboBox_setPenCapStyle->addItem(QString());
-        comboBox_setPenCapStyle->addItem(QString());
-        comboBox_setPenCapStyle->addItem(QString());
-        comboBox_setPenCapStyle->setObjectName(QString::fromUtf8("comboBox_setPenCapStyle"));
-
-        horizontalLayout_42->addWidget(comboBox_setPenCapStyle);
-
-
-        horizontalLayout_46->addLayout(horizontalLayout_42);
-
-        line_14 = new QFrame(layoutWidget9);
-        line_14->setObjectName(QString::fromUtf8("line_14"));
-        line_14->setFrameShape(QFrame::VLine);
-        line_14->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_46->addWidget(line_14);
-
-        horizontalLayout_41 = new QHBoxLayout();
-        horizontalLayout_41->setSpacing(6);
-        horizontalLayout_41->setObjectName(QString::fromUtf8("horizontalLayout_41"));
-        label_55 = new QLabel(layoutWidget9);
-        label_55->setObjectName(QString::fromUtf8("label_55"));
-        label_55->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_41->addWidget(label_55);
-
-        comboBox_setPenStyle = new QComboBox(layoutWidget9);
-        comboBox_setPenStyle->addItem(QString());
-        comboBox_setPenStyle->addItem(QString());
-        comboBox_setPenStyle->addItem(QString());
-        comboBox_setPenStyle->addItem(QString());
-        comboBox_setPenStyle->addItem(QString());
-        comboBox_setPenStyle->addItem(QString());
-        comboBox_setPenStyle->setObjectName(QString::fromUtf8("comboBox_setPenStyle"));
-
-        horizontalLayout_41->addWidget(comboBox_setPenStyle);
-
-
-        horizontalLayout_46->addLayout(horizontalLayout_41);
-
-        line_15 = new QFrame(layoutWidget9);
-        line_15->setObjectName(QString::fromUtf8("line_15"));
-        line_15->setFrameShape(QFrame::VLine);
-        line_15->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_46->addWidget(line_15);
-
-        horizontalLayout_40 = new QHBoxLayout();
-        horizontalLayout_40->setSpacing(6);
-        horizontalLayout_40->setObjectName(QString::fromUtf8("horizontalLayout_40"));
-        label_54 = new QLabel(layoutWidget9);
-        label_54->setObjectName(QString::fromUtf8("label_54"));
-        label_54->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_40->addWidget(label_54);
-
-        spinBox_setPenWidth = new QSpinBox(layoutWidget9);
-        spinBox_setPenWidth->setObjectName(QString::fromUtf8("spinBox_setPenWidth"));
-        spinBox_setPenWidth->setMinimum(1);
-        spinBox_setPenWidth->setMaximum(20);
-
-        horizontalLayout_40->addWidget(spinBox_setPenWidth);
-
-
-        horizontalLayout_46->addLayout(horizontalLayout_40);
-
-        line_16 = new QFrame(layoutWidget9);
-        line_16->setObjectName(QString::fromUtf8("line_16"));
-        line_16->setFrameShape(QFrame::VLine);
-        line_16->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_46->addWidget(line_16);
-
-        horizontalLayout_39 = new QHBoxLayout();
-        horizontalLayout_39->setSpacing(6);
-        horizontalLayout_39->setObjectName(QString::fromUtf8("horizontalLayout_39"));
-        label_53 = new QLabel(layoutWidget9);
-        label_53->setObjectName(QString::fromUtf8("label_53"));
-        label_53->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_39->addWidget(label_53);
-
-        comboBox_setPenColor = new QComboBox(layoutWidget9);
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->addItem(QString());
-        comboBox_setPenColor->setObjectName(QString::fromUtf8("comboBox_setPenColor"));
-
-        horizontalLayout_39->addWidget(comboBox_setPenColor);
-
-
-        horizontalLayout_46->addLayout(horizontalLayout_39);
-
-        layoutWidget10 = new QWidget(tab_setProperties);
-        layoutWidget10->setObjectName(QString::fromUtf8("layoutWidget10"));
-        layoutWidget10->setGeometry(QRect(220, 110, 607, 34));
-        horizontalLayout_47 = new QHBoxLayout(layoutWidget10);
-        horizontalLayout_47->setSpacing(6);
-        horizontalLayout_47->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_47->setObjectName(QString::fromUtf8("horizontalLayout_47"));
-        horizontalLayout_47->setContentsMargins(0, 0, 0, 0);
-        horizontalLayout_43 = new QHBoxLayout();
-        horizontalLayout_43->setSpacing(6);
-        horizontalLayout_43->setObjectName(QString::fromUtf8("horizontalLayout_43"));
-        label_57 = new QLabel(layoutWidget10);
-        label_57->setObjectName(QString::fromUtf8("label_57"));
-        label_57->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_43->addWidget(label_57);
-
-        comboBox_setPenJoinStyle = new QComboBox(layoutWidget10);
-        comboBox_setPenJoinStyle->addItem(QString());
-        comboBox_setPenJoinStyle->addItem(QString());
-        comboBox_setPenJoinStyle->addItem(QString());
-        comboBox_setPenJoinStyle->setObjectName(QString::fromUtf8("comboBox_setPenJoinStyle"));
-
-        horizontalLayout_43->addWidget(comboBox_setPenJoinStyle);
-
-
-        horizontalLayout_47->addLayout(horizontalLayout_43);
-
-        line_17 = new QFrame(layoutWidget10);
-        line_17->setObjectName(QString::fromUtf8("line_17"));
-        line_17->setFrameShape(QFrame::VLine);
-        line_17->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_47->addWidget(line_17);
-
-        horizontalLayout_44 = new QHBoxLayout();
-        horizontalLayout_44->setSpacing(6);
-        horizontalLayout_44->setObjectName(QString::fromUtf8("horizontalLayout_44"));
-        label_58 = new QLabel(layoutWidget10);
-        label_58->setObjectName(QString::fromUtf8("label_58"));
-        label_58->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_44->addWidget(label_58);
-
-        comboBox_setBrushColor = new QComboBox(layoutWidget10);
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->addItem(QString());
-        comboBox_setBrushColor->setObjectName(QString::fromUtf8("comboBox_setBrushColor"));
-
-        horizontalLayout_44->addWidget(comboBox_setBrushColor);
-
-
-        horizontalLayout_47->addLayout(horizontalLayout_44);
-
-        horizontalLayout_45 = new QHBoxLayout();
-        horizontalLayout_45->setSpacing(6);
-        horizontalLayout_45->setObjectName(QString::fromUtf8("horizontalLayout_45"));
-        line_18 = new QFrame(layoutWidget10);
-        line_18->setObjectName(QString::fromUtf8("line_18"));
-        line_18->setFrameShape(QFrame::VLine);
-        line_18->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_45->addWidget(line_18);
-
-        label_59 = new QLabel(layoutWidget10);
-        label_59->setObjectName(QString::fromUtf8("label_59"));
-        label_59->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_45->addWidget(label_59);
-
-        comboBox_setBrushStyle = new QComboBox(layoutWidget10);
-        comboBox_setBrushStyle->addItem(QString());
-        comboBox_setBrushStyle->addItem(QString());
-        comboBox_setBrushStyle->addItem(QString());
-        comboBox_setBrushStyle->addItem(QString());
-        comboBox_setBrushStyle->setObjectName(QString::fromUtf8("comboBox_setBrushStyle"));
-
-        horizontalLayout_45->addWidget(comboBox_setBrushStyle);
-
-
-        horizontalLayout_47->addLayout(horizontalLayout_45);
-
+        pushButton_7 = new QPushButton(tab_setProperties);
+        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        pushButton_7->setGeometry(QRect(280, 100, 75, 23));
+        pushButton_8 = new QPushButton(tab_setProperties);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setGeometry(QRect(560, 100, 75, 23));
         tabWidget->addTab(tab_setProperties, QString());
         Tab_Move = new QWidget();
         Tab_Move->setObjectName(QString::fromUtf8("Tab_Move"));
         Tab_Move->setEnabled(true);
-        layoutWidget11 = new QWidget(Tab_Move);
-        layoutWidget11->setObjectName(QString::fromUtf8("layoutWidget11"));
-        layoutWidget11->setGeometry(QRect(290, 30, 258, 101));
-        verticalLayout_25 = new QVBoxLayout(layoutWidget11);
+        layoutWidget9 = new QWidget(Tab_Move);
+        layoutWidget9->setObjectName(QString::fromUtf8("layoutWidget9"));
+        layoutWidget9->setGeometry(QRect(290, 30, 258, 101));
+        verticalLayout_25 = new QVBoxLayout(layoutWidget9);
         verticalLayout_25->setSpacing(6);
         verticalLayout_25->setContentsMargins(11, 11, 11, 11);
         verticalLayout_25->setObjectName(QString::fromUtf8("verticalLayout_25"));
@@ -2266,12 +2038,12 @@ public:
         horizontalLayout_67 = new QHBoxLayout();
         horizontalLayout_67->setSpacing(6);
         horizontalLayout_67->setObjectName(QString::fromUtf8("horizontalLayout_67"));
-        label_74 = new QLabel(layoutWidget11);
+        label_74 = new QLabel(layoutWidget9);
         label_74->setObjectName(QString::fromUtf8("label_74"));
 
         horizontalLayout_67->addWidget(label_74);
 
-        spinBox_move_id = new QSpinBox(layoutWidget11);
+        spinBox_move_id = new QSpinBox(layoutWidget9);
         spinBox_move_id->setObjectName(QString::fromUtf8("spinBox_move_id"));
         spinBox_move_id->setMinimum(0);
         spinBox_move_id->setMaximum(100);
@@ -2287,12 +2059,12 @@ public:
         horizontalLayout_69 = new QHBoxLayout();
         horizontalLayout_69->setSpacing(6);
         horizontalLayout_69->setObjectName(QString::fromUtf8("horizontalLayout_69"));
-        label_83 = new QLabel(layoutWidget11);
+        label_83 = new QLabel(layoutWidget9);
         label_83->setObjectName(QString::fromUtf8("label_83"));
 
         horizontalLayout_69->addWidget(label_83);
 
-        spinBox_moveX = new QSpinBox(layoutWidget11);
+        spinBox_moveX = new QSpinBox(layoutWidget9);
         spinBox_moveX->setObjectName(QString::fromUtf8("spinBox_moveX"));
         spinBox_moveX->setMinimum(-1000);
         spinBox_moveX->setMaximum(1000);
@@ -2305,12 +2077,12 @@ public:
         horizontalLayout_68 = new QHBoxLayout();
         horizontalLayout_68->setSpacing(6);
         horizontalLayout_68->setObjectName(QString::fromUtf8("horizontalLayout_68"));
-        label_84 = new QLabel(layoutWidget11);
+        label_84 = new QLabel(layoutWidget9);
         label_84->setObjectName(QString::fromUtf8("label_84"));
 
         horizontalLayout_68->addWidget(label_84);
 
-        spinBox_moveY = new QSpinBox(layoutWidget11);
+        spinBox_moveY = new QSpinBox(layoutWidget9);
         spinBox_moveY->setObjectName(QString::fromUtf8("spinBox_moveY"));
         spinBox_moveY->setMinimum(-1000);
         spinBox_moveY->setMaximum(1000);
@@ -2323,20 +2095,20 @@ public:
 
         verticalLayout_25->addLayout(horizontalLayout_70);
 
-        pushButton_move = new QPushButton(layoutWidget11);
+        pushButton_move = new QPushButton(layoutWidget9);
         pushButton_move->setObjectName(QString::fromUtf8("pushButton_move"));
 
         verticalLayout_25->addWidget(pushButton_move);
 
-        layoutWidget12 = new QWidget(Tab_Move);
-        layoutWidget12->setObjectName(QString::fromUtf8("layoutWidget12"));
-        layoutWidget12->setGeometry(QRect(250, 140, 331, 42));
-        verticalLayout_26 = new QVBoxLayout(layoutWidget12);
+        layoutWidget10 = new QWidget(Tab_Move);
+        layoutWidget10->setObjectName(QString::fromUtf8("layoutWidget10"));
+        layoutWidget10->setGeometry(QRect(250, 140, 331, 42));
+        verticalLayout_26 = new QVBoxLayout(layoutWidget10);
         verticalLayout_26->setSpacing(1);
         verticalLayout_26->setContentsMargins(11, 11, 11, 11);
         verticalLayout_26->setObjectName(QString::fromUtf8("verticalLayout_26"));
         verticalLayout_26->setContentsMargins(0, 0, 0, 0);
-        label_85 = new QLabel(layoutWidget12);
+        label_85 = new QLabel(layoutWidget10);
         label_85->setObjectName(QString::fromUtf8("label_85"));
 
         verticalLayout_26->addWidget(label_85);
@@ -2344,12 +2116,12 @@ public:
         horizontalLayout_71 = new QHBoxLayout();
         horizontalLayout_71->setSpacing(6);
         horizontalLayout_71->setObjectName(QString::fromUtf8("horizontalLayout_71"));
-        label_86 = new QLabel(layoutWidget12);
+        label_86 = new QLabel(layoutWidget10);
         label_86->setObjectName(QString::fromUtf8("label_86"));
 
         horizontalLayout_71->addWidget(label_86);
 
-        spinBox_moveCoordinate = new QSpinBox(layoutWidget12);
+        spinBox_moveCoordinate = new QSpinBox(layoutWidget10);
         spinBox_moveCoordinate->setObjectName(QString::fromUtf8("spinBox_moveCoordinate"));
         spinBox_moveCoordinate->setMinimum(1);
         spinBox_moveCoordinate->setMaximum(8);
@@ -2362,10 +2134,10 @@ public:
         tabWidget->addTab(Tab_Move, QString());
         tab_delete = new QWidget();
         tab_delete->setObjectName(QString::fromUtf8("tab_delete"));
-        layoutWidget13 = new QWidget(tab_delete);
-        layoutWidget13->setObjectName(QString::fromUtf8("layoutWidget13"));
-        layoutWidget13->setGeometry(QRect(310, 30, 336, 81));
-        verticalLayout_24 = new QVBoxLayout(layoutWidget13);
+        layoutWidget11 = new QWidget(tab_delete);
+        layoutWidget11->setObjectName(QString::fromUtf8("layoutWidget11"));
+        layoutWidget11->setGeometry(QRect(310, 30, 336, 81));
+        verticalLayout_24 = new QVBoxLayout(layoutWidget11);
         verticalLayout_24->setSpacing(6);
         verticalLayout_24->setContentsMargins(11, 11, 11, 11);
         verticalLayout_24->setObjectName(QString::fromUtf8("verticalLayout_24"));
@@ -2373,12 +2145,12 @@ public:
         horizontalLayout_66 = new QHBoxLayout();
         horizontalLayout_66->setSpacing(6);
         horizontalLayout_66->setObjectName(QString::fromUtf8("horizontalLayout_66"));
-        label_70 = new QLabel(layoutWidget13);
+        label_70 = new QLabel(layoutWidget11);
         label_70->setObjectName(QString::fromUtf8("label_70"));
 
         horizontalLayout_66->addWidget(label_70);
 
-        spinBox_delete_id = new QSpinBox(layoutWidget13);
+        spinBox_delete_id = new QSpinBox(layoutWidget11);
         spinBox_delete_id->setObjectName(QString::fromUtf8("spinBox_delete_id"));
         spinBox_delete_id->setMinimum(0);
         spinBox_delete_id->setMaximum(7000);
@@ -2388,7 +2160,7 @@ public:
 
         verticalLayout_24->addLayout(horizontalLayout_66);
 
-        pushButton_deleteShape = new QPushButton(layoutWidget13);
+        pushButton_deleteShape = new QPushButton(layoutWidget11);
         pushButton_deleteShape->setObjectName(QString::fromUtf8("pushButton_deleteShape"));
 
         verticalLayout_24->addWidget(pushButton_deleteShape);
@@ -2420,8 +2192,8 @@ public:
 
         retranslateUi(secDialog);
 
-        tabWidget->setCurrentIndex(3);
-        tabWidget_addShape->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(0);
+        tabWidget_addShape->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(secDialog);
@@ -2743,54 +2515,9 @@ public:
         tabWidget_addShape->setTabText(tabWidget_addShape->indexOf(tab_text), QCoreApplication::translate("secDialog", "Text", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(Tab_Shape), QCoreApplication::translate("secDialog", "Add Shape", nullptr));
         label_52->setText(QCoreApplication::translate("secDialog", "Set properties of shapes added:", nullptr));
-        label_56->setText(QCoreApplication::translate("secDialog", "Pen Cap Style: ", nullptr));
-        comboBox_setPenCapStyle->setItemText(0, QCoreApplication::translate("secDialog", "Square", nullptr));
-        comboBox_setPenCapStyle->setItemText(1, QCoreApplication::translate("secDialog", "Flat", nullptr));
-        comboBox_setPenCapStyle->setItemText(2, QCoreApplication::translate("secDialog", "Round", nullptr));
-
-        label_55->setText(QCoreApplication::translate("secDialog", "Pen Style: ", nullptr));
-        comboBox_setPenStyle->setItemText(0, QCoreApplication::translate("secDialog", "Solid Line", nullptr));
-        comboBox_setPenStyle->setItemText(1, QCoreApplication::translate("secDialog", "Dash Line", nullptr));
-        comboBox_setPenStyle->setItemText(2, QCoreApplication::translate("secDialog", "Dot Line", nullptr));
-        comboBox_setPenStyle->setItemText(3, QCoreApplication::translate("secDialog", "Dash Dot Line", nullptr));
-        comboBox_setPenStyle->setItemText(4, QCoreApplication::translate("secDialog", "Dash Dot Dot Line", nullptr));
-        comboBox_setPenStyle->setItemText(5, QCoreApplication::translate("secDialog", "No Pen", nullptr));
-
-        label_54->setText(QCoreApplication::translate("secDialog", "Pen Width:", nullptr));
-        label_53->setText(QCoreApplication::translate("secDialog", "Pen Color: ", nullptr));
-        comboBox_setPenColor->setItemText(0, QCoreApplication::translate("secDialog", "Blue", nullptr));
-        comboBox_setPenColor->setItemText(1, QCoreApplication::translate("secDialog", "Red", nullptr));
-        comboBox_setPenColor->setItemText(2, QCoreApplication::translate("secDialog", "Green", nullptr));
-        comboBox_setPenColor->setItemText(3, QCoreApplication::translate("secDialog", "Yellow", nullptr));
-        comboBox_setPenColor->setItemText(4, QCoreApplication::translate("secDialog", "Black", nullptr));
-        comboBox_setPenColor->setItemText(5, QCoreApplication::translate("secDialog", "White", nullptr));
-        comboBox_setPenColor->setItemText(6, QCoreApplication::translate("secDialog", "Cyan", nullptr));
-        comboBox_setPenColor->setItemText(7, QCoreApplication::translate("secDialog", "Magenta", nullptr));
-        comboBox_setPenColor->setItemText(8, QCoreApplication::translate("secDialog", "Gray", nullptr));
-
-        label_57->setText(QCoreApplication::translate("secDialog", "Pen Join Style: ", nullptr));
-        comboBox_setPenJoinStyle->setItemText(0, QCoreApplication::translate("secDialog", "Bevel", nullptr));
-        comboBox_setPenJoinStyle->setItemText(1, QCoreApplication::translate("secDialog", "Miter", nullptr));
-        comboBox_setPenJoinStyle->setItemText(2, QCoreApplication::translate("secDialog", "Round", nullptr));
-
-        label_58->setText(QCoreApplication::translate("secDialog", "Brush Color: ", nullptr));
-        comboBox_setBrushColor->setItemText(0, QCoreApplication::translate("secDialog", "Blue", nullptr));
-        comboBox_setBrushColor->setItemText(1, QCoreApplication::translate("secDialog", "Red", nullptr));
-        comboBox_setBrushColor->setItemText(2, QCoreApplication::translate("secDialog", "Green", nullptr));
-        comboBox_setBrushColor->setItemText(3, QCoreApplication::translate("secDialog", "Yellow", nullptr));
-        comboBox_setBrushColor->setItemText(4, QCoreApplication::translate("secDialog", "Black", nullptr));
-        comboBox_setBrushColor->setItemText(5, QCoreApplication::translate("secDialog", "White", nullptr));
-        comboBox_setBrushColor->setItemText(6, QCoreApplication::translate("secDialog", "Cyan", nullptr));
-        comboBox_setBrushColor->setItemText(7, QCoreApplication::translate("secDialog", "Magenta", nullptr));
-        comboBox_setBrushColor->setItemText(8, QCoreApplication::translate("secDialog", "Gray", nullptr));
-
-        label_59->setText(QCoreApplication::translate("secDialog", "Brush Style: ", nullptr));
-        comboBox_setBrushStyle->setItemText(0, QCoreApplication::translate("secDialog", "No Brush", nullptr));
-        comboBox_setBrushStyle->setItemText(1, QCoreApplication::translate("secDialog", "Solid Brush", nullptr));
-        comboBox_setBrushStyle->setItemText(2, QCoreApplication::translate("secDialog", "Hor Pattern", nullptr));
-        comboBox_setBrushStyle->setItemText(3, QCoreApplication::translate("secDialog", "Ver Pattern", nullptr));
-
-        tabWidget->setTabText(tabWidget->indexOf(tab_setProperties), QCoreApplication::translate("secDialog", "Properties", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("secDialog", "PushButton", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("secDialog", "Load", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_setProperties), QCoreApplication::translate("secDialog", "Save/Load", nullptr));
         label_74->setText(QCoreApplication::translate("secDialog", "Move Shape with ID #:", nullptr));
         label_83->setText(QCoreApplication::translate("secDialog", "X-value: ", nullptr));
         label_84->setText(QCoreApplication::translate("secDialog", "Y-value: ", nullptr));

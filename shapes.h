@@ -121,10 +121,6 @@ public:
 
     virtual vector<QPoint>& getPoints() {return vect;}
 
-    //virtual double perimeter() const = 0;
-
-    //virtual double area() const = 0;
-
 
 protected:
     QPainter & getQPainter()
@@ -221,8 +217,11 @@ private:
     int numPts;
 
 public:
-    Polyline() : Shape() {}
+    Polyline() : Shape() {
+        numPts = 0;
+    }
 
+    // pass in array of Qpoints, with an NP counter
     Polyline(QPoint *point, int NP) : Shape()
     {
         numPts = NP;
@@ -259,6 +258,10 @@ public:
        pointArr[coord - 1] = point;
     }
 
+    int getnumPts(){
+        return numPts;
+    }
+
     //vector<QPoint>& getPoints() override {return points;};
 
 };
@@ -271,7 +274,9 @@ private:
     int numPts;
 
 public:
-    Polygon() : Shape() {}
+    Polygon() : Shape() {
+        numPts = 0;
+    }
 
     Polygon(QPoint *point, int NP) : Shape()
     {

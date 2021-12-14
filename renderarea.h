@@ -7,6 +7,7 @@
 #include <QWidget>
 #include "vector.h"
 #include "shapes.h"
+#include "parser.h"
 
 using sdog::vector;
 
@@ -22,7 +23,7 @@ class RenderArea : public QWidget
     QSize minimumSizeHint() const {return QSize(100, 100);}     //^^
 
     //to get shapes info
-    const vector<Shape*>& getShapes() {return shapeVector;}
+    const sdog::vector<Shape*>& getShapes() {return shapeVector;}
 
     int getSize() {return shapeVector.size(); }
     int getNumShapesRenderArea() {return numShapesRenderArea;}
@@ -34,6 +35,8 @@ class RenderArea : public QWidget
     void moveShape(int inMove, int coordMove, int x, int y);
 
     void readShapeFile();
+
+    void renderParsedShapes();
 
 private:
     const QImage renderArea;

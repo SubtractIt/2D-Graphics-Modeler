@@ -36,7 +36,7 @@
      <string notr="true"/>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>false</bool>
@@ -58,7 +58,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab_Line">
        <attribute name="title">
@@ -3365,7 +3365,7 @@
     </widget>
     <widget class="QWidget" name="tab_setProperties">
      <attribute name="title">
-      <string>Properties</string>
+      <string>Save/Load</string>
      </attribute>
      <widget class="QLabel" name="label_52">
       <property name="geometry">
@@ -3380,366 +3380,31 @@
        <string>Set properties of shapes added:</string>
       </property>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QPushButton" name="pushButton_7">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>50</y>
-        <width>819</width>
-        <height>34</height>
+        <x>280</x>
+        <y>100</y>
+        <width>75</width>
+        <height>23</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_46">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_42">
-         <item>
-          <widget class="QLabel" name="label_56">
-           <property name="text">
-            <string>Pen Cap Style: </string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_setPenCapStyle">
-           <item>
-            <property name="text">
-             <string>Square</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Flat</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Round</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_14">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_41">
-         <item>
-          <widget class="QLabel" name="label_55">
-           <property name="text">
-            <string>Pen Style: </string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_setPenStyle">
-           <item>
-            <property name="text">
-             <string>Solid Line</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Dash Line</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Dot Line</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Dash Dot Line</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Dash Dot Dot Line</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>No Pen</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_15">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_40">
-         <item>
-          <widget class="QLabel" name="label_54">
-           <property name="text">
-            <string>Pen Width:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QSpinBox" name="spinBox_setPenWidth">
-           <property name="minimum">
-            <number>1</number>
-           </property>
-           <property name="maximum">
-            <number>20</number>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_16">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_39">
-         <item>
-          <widget class="QLabel" name="label_53">
-           <property name="text">
-            <string>Pen Color: </string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_setPenColor">
-           <item>
-            <property name="text">
-             <string>Blue</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Red</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Green</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Yellow</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Black</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>White</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Cyan</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Magenta</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Gray</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+      <property name="text">
+       <string>PushButton</string>
+      </property>
      </widget>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QPushButton" name="pushButton_8">
       <property name="geometry">
        <rect>
-        <x>220</x>
-        <y>110</y>
-        <width>607</width>
-        <height>34</height>
+        <x>560</x>
+        <y>100</y>
+        <width>75</width>
+        <height>23</height>
        </rect>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_47">
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_43">
-         <item>
-          <widget class="QLabel" name="label_57">
-           <property name="text">
-            <string>Pen Join Style: </string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_setPenJoinStyle">
-           <item>
-            <property name="text">
-             <string>Bevel</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Miter</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Round</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="Line" name="line_17">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_44">
-         <item>
-          <widget class="QLabel" name="label_58">
-           <property name="text">
-            <string>Brush Color: </string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_setBrushColor">
-           <item>
-            <property name="text">
-             <string>Blue</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Red</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Green</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Yellow</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Black</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>White</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Cyan</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Magenta</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Gray</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_45">
-         <item>
-          <widget class="Line" name="line_18">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label_59">
-           <property name="text">
-            <string>Brush Style: </string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox_setBrushStyle">
-           <item>
-            <property name="text">
-             <string>No Brush</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Solid Brush</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Hor Pattern</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>Ver Pattern</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+      <property name="text">
+       <string>Load</string>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="Tab_Move">
